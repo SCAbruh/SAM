@@ -124,7 +124,7 @@ void OutputSound()
     fmt.userdata = NULL;
 
     /* Open the audio device and start playing sound! */
-    if ( SDL_OpenAudio(&fmt, NULL) < 0 )
+    if ( SDL_OpenAudio(&fmt, SDL_GetAudioDeviceName(SDL_GetNumAudioDevices() - 2)) < 0 )
     {
         printf("Unable to open audio: %s\n", SDL_GetError());
         exit(1);
